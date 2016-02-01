@@ -51,3 +51,8 @@ input {
 .avatar {
   width: 20%;
   height: 20%; }
+
+@media screen and (max-width: 650px) {
+  body .avatar {
+    width: 80%;
+    height: 80%; } }

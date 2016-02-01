@@ -15,3 +15,12 @@ input{
   width: 20%;
   height: 20%;
 }
+
+body{
+  @include media($mobile){
+    .avatar{
+      width: 80%;
+      height: 80%;
+    }
+  }
+}

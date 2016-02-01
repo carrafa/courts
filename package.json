@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/carrafa/mixy#readme",
   "dependencies": {
+    "angular-simple-logger": "^0.1.7",
     "bcryptjs": "^2.3.0",
     "body-parser": "^1.14.2",
     "cookie-parser": "^1.4.1",
@@ -24,6 +25,7 @@
     "dotenv": "^2.0.0",
     "faker": "^3.0.1",
     "kerberos": "0.0.18",
+    "lodash": "^4.1.0",
     "mongoose": "^4.3.7",
     "morgan": "^1.6.1",
     "node-neat": "^1.7.2",

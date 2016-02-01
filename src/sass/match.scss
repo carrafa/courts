@@ -8,12 +8,18 @@ li{
   border-radius: 2em;
   display: inline-block;
   overflow: scroll;
-  @include media($mobile){
-    @include span-columns(8);
-    @include omega();
-  }
+
   img{
     width: 80%;
     height: 80%;
   }
 };
+
+body{
+  @include media($mobile){
+    li{
+    @include span-columns(8);
+    @include omega();
+    }
+  }
+}

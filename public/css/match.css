@@ -60,15 +60,16 @@ li {
     margin-right: 0; }
   li:nth-child(4n+1) {
     clear: left; }
-  @media screen and (max-width: 650px) {
-    li {
-      float: left;
-      display: block;
-      margin-right: 3.57866%;
-      width: 100%;
-      margin-right: 0; }
-      li:last-child {
-        margin-right: 0; } }
   li img {
     width: 80%;
     height: 80%; }
+
+@media screen and (max-width: 650px) {
+  body li {
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 100%;
+    margin-right: 0; }
+    body li:last-child {
+      margin-right: 0; } }
