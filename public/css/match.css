@@ -30,10 +30,6 @@ ul {
 
 header {
   width: 100%; }
-  header .username {
-    position: fixed;
-    top: .5em;
-    left: 1em; }
   header nav {
     position: fixed;
     top: .5em;
@@ -52,7 +48,7 @@ li {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
+  width: 23.23176%;
   margin-bottom: 1em;
   background-color: lemonchiffon;
   border-radius: 2em;
@@ -60,9 +56,9 @@ li {
   overflow: scroll; }
   li:last-child {
     margin-right: 0; }
-  li:nth-child(2n) {
+  li:nth-child(4n) {
     margin-right: 0; }
-  li:nth-child(2n+1) {
+  li:nth-child(4n+1) {
     clear: left; }
   @media screen and (max-width: 650px) {
     li {
@@ -73,3 +69,6 @@ li {
       margin-right: 0; }
       li:last-child {
         margin-right: 0; } }
+  li img {
+    width: 80%;
+    height: 80%; }

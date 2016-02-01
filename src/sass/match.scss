@@ -1,8 +1,8 @@
 @import 'base';
 
 li{
-  @include span-columns(6);
-  @include omega(2n);
+  @include span-columns(3);
+  @include omega(4n);
   margin-bottom: 1em;
   background-color: $bg-light;
   border-radius: 2em;
@@ -11,5 +11,9 @@ li{
   @include media($mobile){
     @include span-columns(8);
     @include omega();
+  }
+  img{
+    width: 80%;
+    height: 80%;
   }
 };
