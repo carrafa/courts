@@ -8,8 +8,25 @@ ctrl.controller('main', ['$scope', 'usersApi', '$cookies',
 
     $scope.currentUser = {}
 
-    $scope.cookie = $cookies.get('token');
+    $scope.edit = {
+      name: false,
+      avatar: false,
+      bio: false,
+      skill: false,
+      zipcode: false,
+    };
 
+    $scope.editOff = function() {
+      angular.forEach($scope.edit,
+        function(value, key) {
+          console.log(this);
+          if (this[key] === true) {
+            this[key] = false;
+          }
+        }, $scope.edit);
+    };
+
+    $scope.cookie = $cookies.get('token');
 
     $scope.loadUser = function() {
       usersApi.loadUser($scope.cookie).then(function(response) {
@@ -17,12 +34,19 @@ ctrl.controller('main', ['$scope', 'usersApi', '$cookies',
       });
     };
 
+
     $scope.logout = function() {
       $cookies.remove('token');
       location.reload();
     };
 
     $scope.loadUser();
+
+    $scope.updateUser = function() {
+      usersApi.updateUser($scope.currentUser).then(function() {
+        $scope.editOff();
+      });
+    };
 
   }
 ]);

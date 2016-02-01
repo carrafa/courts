@@ -6,22 +6,11 @@ var User = require('../models/user');
 
 // index
 router.get('/', function(req, res) {
-  if (req.cookies.token) {
-    token = req.cookies.token;
-    User.find({
-      token: token
-    }, function(err, dbUser) {
-      res.json({
-        user: dbUser
-      });
+  User.find({}, function(err, dbUsers) {
+    res.json({
+      users: dbUsers
     });
-  } else {
-    User.find({}, function(err, dbUsers) {
-      res.json({
-        users: dbUsers
-      });
-    });
-  }
+  });
 });
 
 // create
@@ -60,6 +49,43 @@ router.delete('/', function(req, res) {
   }
 });
 
+// update
+router.put('/:id', function(req, res) {
+  User.findByIdAndUpdate(req.params.id, req.body.user, function(err, user) {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return next({
+        status: 404,
+        message: "not found!"
+      });
+    }
+    res.json(user)
+  });
+});
+
+
+//load user
+router.get('/authenticate', function(req, res) {
+  if (req.cookies.token) {
+    token = req.cookies.token;
+    User.find({
+      token: token
+    }, function(err, dbUser) {
+      res.json({
+        user: dbUser
+      });
+    });
+  } else {
+    res.json({
+      description: 'no success',
+      status: 302
+    });
+  }
+});
+
+// log in
 router.post('/authenticate', function(req, res) {
   User.findOne({
     username: req.body.username

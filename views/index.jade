@@ -2,6 +2,28 @@ extends base
 
 block content
   body(ng-controller="main")
-    a(href="#", class="logout", ng-click="logout()") logout
-    h1 hello {{currentUser.username}}
+    include ./includes/header
     
+    h1 hello {{currentUser.username}}
+    ul.profile
+      
+      img(ng-click="edit.avatar = !edit.avatar", src="{{currentUser.avatar}}", class="avatar")
+      form(ng-submit="updateUser()")
+        input(ng-show="edit.avatar", type='text', ng-model='currentUser.avatar', placeholder="{{currentUser.avatar}}") 
+        
+      div(ng-click="edit.name = true", ng-hide="edit.name") name: {{currentUser.name}}
+      form(ng-submit="updateUser()")
+        input(ng-show="edit.name", type='text', ng-model='currentUser.name', placeholder="{{currentUser.name}}")
+      
+      
+      div(ng-click="edit.bio = true", ng-hide="edit.bio") bio: {{currentUser.bio}}
+      form(ng-submit="updateUser()")
+        input(ng-show="edit.bio", type='text', ng-model='currentUser.bio', placeholder="{{currentUser.bio}}")
+      
+      div(ng-click="edit.skill = true", ng-hide="edit.skill") skill: {{currentUser.skill}}
+      form(ng-submit="updateUser()")
+        input(ng-show="edit.skill", type='text', ng-model='currentUser.skill', placeholder="{{currentUser.skill}}")
+      
+      div(ng-click="edit.zipcode = true", ng-hide="edit.zipcode") zipcode: {{currentUser.zipcode}}
+      form(ng-submit="updateUser()")
+        input(ng-show="edit.zipcode", type='text', ng-model='currentUser.zipcode', placeholder="{{currentUser.zipcode}}")

@@ -36,10 +36,28 @@ header .logout {
   top: .5em;
   right: 1em; }
 
-input {
-  border: none;
-  border-radius: .2em; }
-
-.avatar {
-  width: 20%;
-  height: 20%; }
+li {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-bottom: 1em;
+  background-color: lemonchiffon;
+  border-radius: 2em;
+  display: inline-block;
+  overflow: scroll; }
+  li:last-child {
+    margin-right: 0; }
+  li:nth-child(2n) {
+    margin-right: 0; }
+  li:nth-child(2n+1) {
+    clear: left; }
+  @media screen and (max-width: 650px) {
+    li {
+      float: left;
+      display: block;
+      margin-right: 3.57866%;
+      width: 100%;
+      margin-right: 0; }
+      li:last-child {
+        margin-right: 0; } }

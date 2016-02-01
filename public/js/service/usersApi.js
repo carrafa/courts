@@ -11,7 +11,7 @@ api.factory('usersApi', ['$http', function($http) {
   }
 
   usersInterface.loadUser = function() {
-    return $http.get(baseUrl);
+    return $http.get(baseUrl + '/authenticate');
   }
 
   usersInterface.createUser = function(newUser) {
@@ -19,6 +19,13 @@ api.factory('usersApi', ['$http', function($http) {
       user: newUser
     };
     return $http.post(baseUrl, payload);
+  }
+
+  usersInterface.updateUser = function(user) {
+    var payload = {
+      user: user
+    };
+    return $http.put(baseUrl + "/" + user._id, payload);
   }
 
   usersInterface.logIn = function(credentials) {

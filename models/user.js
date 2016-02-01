@@ -6,7 +6,22 @@ var UserSchema = mongoose.Schema({
   username: {
     type: String
   },
+  name: {
+    type: String
+  },
   password: {
+    type: String
+  },
+  bio: {
+    type: String
+  },
+  skill: {
+    type: Number
+  },
+  avatar: {
+    type: String
+  },
+  zipcode: {
     type: String
   },
   token: {

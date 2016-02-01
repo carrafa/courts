@@ -51,6 +51,9 @@ app.use('/api/courts', courtsApi);
 var courts = require('./routes/courts');
 app.use('/courts', courts);
 
+var match = require('./routes/match');
+app.use('/match', match);
+
 app.get('/welcome', function(req, res) {
   if (req.cookies.token) {
     res.redirect('/')

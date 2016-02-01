@@ -1,0 +1,15 @@
+extends base
+
+block head
+  link(rel="stylesheet", href="/css/match.css")
+
+block content
+  include ./includes/header
+  body(ng-controller="match")
+    ul
+      li(ng-repeat="user in allUsers")
+        div {{user.name}}
+        img(src="{{user.avatar}}")
+        div {{user.bio}}
+        div skill: {{user.skill}}
+        div {{user.zipcode}}

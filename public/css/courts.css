@@ -41,11 +41,11 @@ li {
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
-  display: inline-block;
+  height: 20vh;
   margin-bottom: 1em;
   background-color: lemonchiffon;
   border-radius: 2em;
-  height: 20vh;
+  display: inline-block;
   overflow: scroll; }
   li:last-child {
     margin-right: 0; }

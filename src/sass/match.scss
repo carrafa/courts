@@ -3,7 +3,6 @@
 li{
   @include span-columns(6);
   @include omega(2n);
-  height: 20vh;
   margin-bottom: 1em;
   background-color: $bg-light;
   border-radius: 2em;
