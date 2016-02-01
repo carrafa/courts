@@ -4,7 +4,6 @@ block content
   body(ng-controller="main")
     include ./includes/header
     
-    h1 hello {{currentUser.username}}
     ul.profile
       
       img(ng-click="edit.avatar = !edit.avatar", src="{{currentUser.avatar}}", class="avatar")

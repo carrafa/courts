@@ -10,6 +10,8 @@ $font-color: lawngreen;
 $font-color-dark: gold;
 $font-color-light: linen;
 
+$link-color: lime;
+$link-hover: chartreuse;
 
 $bg-dark: darkgreen;
 $bg-light: lemonchiffon;
@@ -44,12 +46,27 @@ li{
 }
 
 header{
-  .logout{
-    font-weight: 600;
-    text-decoration: none;
-    color: $red;
+  width: 100%;
+  .username{
+    position: fixed;
+    top: .5em;
+    left: 1em;
+  }
+  nav{
     position: fixed;
     top: .5em;
     right: 1em;
+    font-weight: 600;
+    a{
+      color: $link-color;
+      text-decoration: none;
+      margin-left: .6em;
+    }
+    a:hover{
+      color: $link-hover;
+    }
+  }
+  .logout{
+    color: $red;
   }
 }

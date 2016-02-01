@@ -28,13 +28,25 @@ ul {
   list-style: none;
   padding: 0; }
 
-header .logout {
-  font-weight: 600;
-  text-decoration: none;
-  color: firebrick;
-  position: fixed;
-  top: .5em;
-  right: 1em; }
+header {
+  width: 100%; }
+  header .username {
+    position: fixed;
+    top: .5em;
+    left: 1em; }
+  header nav {
+    position: fixed;
+    top: .5em;
+    right: 1em;
+    font-weight: 600; }
+    header nav a {
+      color: lime;
+      text-decoration: none;
+      margin-left: .6em; }
+    header nav a:hover {
+      color: chartreuse; }
+  header .logout {
+    color: firebrick; }
 
 input {
   border: none;

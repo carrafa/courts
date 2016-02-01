@@ -1,3 +1,8 @@
 header
+  .username hi, {{currentUser.name}}
   h1 courts
-  a(href="#", class="logout", ng-click="logout()") logout
+  nav
+    a(href="/") profile
+    a(href="/courts") courts
+    a(href="/match") match
+    a(href="#", class="logout", ng-click="logout()") logout
