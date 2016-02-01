@@ -21,7 +21,7 @@ block content
       
       div(ng-click="edit.skill = true", ng-hide="edit.skill") skill: {{currentUser.skill}}
       form(ng-submit="updateUser()")
-        input(ng-show="edit.skill", type='text', ng-model='currentUser.skill', placeholder="{{currentUser.skill}}")
+        input(ng-show="edit.skill", type='number', ng-model='currentUser.skill', placeholder="{{currentUser.skill}}")
       
       div(ng-click="edit.zipcode = true", ng-hide="edit.zipcode") zipcode: {{currentUser.zipcode}}
       form(ng-submit="updateUser()")
