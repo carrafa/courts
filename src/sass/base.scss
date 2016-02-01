@@ -1,0 +1,51 @@
+@import 'bourbon';
+@import 'neat';
+
+$tablet: new-breakpoint(max-width 1065px 8);
+$mobile: new-breakpoint(max-width 650px 8);
+
+$main-font: 'Quicksand', sans-serif;
+
+$font-color: lawngreen;
+$font-color-dark: gold;
+$font-color-light: linen;
+
+
+$bg-dark: darkgreen;
+$bg-light: lemonchiffon;
+
+$red: firebrick;
+$red-light: salmon;
+
+
+body {
+  @include outer-container();
+  background-color: $bg-dark;
+  font-family: $main-font;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  color: $font-color;
+  font-weight: 400;
+}
+h1{
+  font-size: 5em;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+}
+
+header{
+  .logout{
+    font-weight: 600;
+    text-decoration: none;
+    color: $red;
+    position: fixed;
+    top: .5em;
+    right: 1em;
+  }
+}

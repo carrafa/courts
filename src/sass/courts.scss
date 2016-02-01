@@ -1,0 +1,16 @@
+@import 'base';
+
+li{
+  @include span-columns(6);
+  @include omega(2n);
+  display: inline-block;
+  margin-bottom: 1em;
+  background-color: $bg-light;
+  border-radius: 2em;
+  height: 20vh;
+  overflow: scroll;
+  @include media($mobile){
+    @include span-columns(8);
+    @include omega();
+  }
+};

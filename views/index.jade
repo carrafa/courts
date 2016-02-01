@@ -1,0 +1,7 @@
+extends base
+
+block content
+  body(ng-controller="main")
+    a(href="#", class="logout", ng-click="logout()") logout
+    h1 hello {{currentUser.username}}
+    

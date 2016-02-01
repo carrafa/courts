@@ -1,0 +1,16 @@
+extends base
+block head
+  link(rel="stylesheet", href="/css/courts.css")
+
+block content
+  body(ng-controller="main")
+    include ./includes/header
+    ul(ng-controller="courts")
+      li(ng-repeat=" court in allCourts")
+        div {{court.name| lowercase}}
+        div {{court.location| lowercase}}
+        div {{court.phone}}
+        div courts: {{court.courts| lowercase}} {{court.tennis_type| lowercase}}, {{court.indoor_outdoor | lowercase}}
+        div {{court.info| lowercase}}
+        div lat: {{court.lat}}
+        div lng: {{court.lon}}

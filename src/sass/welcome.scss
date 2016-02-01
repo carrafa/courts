@@ -1,0 +1,25 @@
+@import 'base';
+
+form{
+  position: relative;
+  width: 20%;
+  margin: 0 auto;
+  margin-bottom: 2em;
+};
+
+input{
+  width: 100%;
+  border: none;
+  border-radius: .5em;
+  margin-top: .5em;
+  height: 1.5em;
+};
+
+button{
+  margin-top: .5em;
+  width: 100%;
+  border: none;
+  border-radius: .5em;
+  background-color: $red-light;
+  text-shadow: 1px 1px 1px $red;
+};
