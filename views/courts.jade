@@ -5,12 +5,26 @@ block head
 block content
   body(ng-controller="main")
     include ./includes/header
-    ul(ng-controller="courts")
-      li(ng-repeat=" court in allCourts")
-        div {{court.name| lowercase}}
-        div {{court.location| lowercase}}
-        div {{court.phone}}
-        div courts: {{court.courts| lowercase}} {{court.tennis_type| lowercase}}, {{court.indoor_outdoor | lowercase}}
-        div {{court.info| lowercase}}
-        div lat: {{court.lat}}
-        div lng: {{court.lon}}
+    .court-container(ng-controller="courts as vm")
+      ng-map(center="[40.7127, -74.0059]", zoom="11", class="ng-map")
+        div(ng-repeat="court in vm.courts track by $index")
+          marker(id="marker{{court._id}}", position="[{{court.lat}}, {{court.lon}}]", title="{{court.name}}", data="{{court}}", on-click="map.showInfoWindow(court._id)")
+            info-window(id="{{court._id}}", visible-on-marker="marker{{court._id}}")
+              div(ng-non-bindable)
+                #body-content
+                  div 
+                      div {{court.name| lowercase}}
+                      div {{court.location| lowercase}}
+                      div {{court.phone}}
+                      div courts: {{court.courts| lowercase}} {{court.tennis_type| lowercase}}, {{court.indoor_outdoor | lowercase}}
+                      div {{court.info| lowercase}}
+          //- custom-marker(class="customMarker", position="[{{court.lat}}, {{court.lon}}]")
+        //- ul
+        //-   li(ng-repeat="court in allCourts")
+        //-     div {{court.name| lowercase}}
+        //-     div {{court.location| lowercase}}
+        //-     div {{court.phone}}
+        //-     div courts: {{court.courts| lowercase}} {{court.tennis_type| lowercase}}, {{court.indoor_outdoor | lowercase}}
+        //-     div {{court.info| lowercase}}
+        //-     div lat: {{court.lat}}
+        //-     div lng: {{court.lon}}

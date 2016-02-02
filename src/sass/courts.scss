@@ -3,14 +3,30 @@
 li{
   @include span-columns(6);
   @include omega(2n);
-  height: 20vh;
+  height: 50vh;
   margin-bottom: 1em;
   background-color: $bg-light;
   border-radius: 2em;
   display: inline-block;
   overflow: scroll;
-  @include media($mobile){
-    @include span-columns(8);
-    @include omega();
-  }
 };
+
+.ng-map{
+  position: relative;
+  height: 80vh;
+  border-radius: 2em;
+  @include span-columns(12);
+  @include omega();
+}
+
+body{
+  @include media($mobile){
+  li{
+      @include span-columns(8);
+      @include omega();
+    }
+    .ng-map{
+      @include span-columns(8);
+    }
+  }
+}

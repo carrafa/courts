@@ -49,7 +49,7 @@ li {
   display: block;
   margin-right: 2.35765%;
   width: 48.82117%;
-  height: 20vh;
+  height: 50vh;
   margin-bottom: 1em;
   background-color: lemonchiffon;
   border-radius: 2em;
@@ -61,12 +61,32 @@ li {
     margin-right: 0; }
   li:nth-child(2n+1) {
     clear: left; }
-  @media screen and (max-width: 650px) {
-    li {
-      float: left;
-      display: block;
-      margin-right: 3.57866%;
-      width: 100%;
+
+.ng-map {
+  position: relative;
+  height: 80vh;
+  border-radius: 2em;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin-right: 0; }
+  .ng-map:last-child {
+    margin-right: 0; }
+
+@media screen and (max-width: 650px) {
+  body li {
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 100%;
+    margin-right: 0; }
+    body li:last-child {
       margin-right: 0; }
-      li:last-child {
-        margin-right: 0; } }
+  body .ng-map {
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 100%; }
+    body .ng-map:last-child {
+      margin-right: 0; } }
