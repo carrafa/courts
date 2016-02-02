@@ -1,8 +1,11 @@
 @import 'bourbon';
 @import 'neat';
 
+
 $tablet: new-breakpoint(max-width 1065px 8);
 $mobile: new-breakpoint(max-width 650px 8);
+
+$header-height: 4em;
 
 $main-font: 'Quicksand', sans-serif;
 
@@ -21,10 +24,14 @@ $red-light: salmon;
 
 
 body {
-  @include outer-container();
   background-color: $bg-dark;
   font-family: $main-font;
   text-align: center;
+}
+
+.main-container{
+  @include outer-container();
+  margin-top: $header-height;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,21 +52,32 @@ li{
 
 }
 
+a{
+  color: $link-color;
+  text-decoration: none;
+  margin-left: .6em;
+}
+a:hover{
+  color: $link-hover;
+}
+
 header{
+  position: fixed;
   width: 100%;
+  height: $header-height;
+  top: 0;
+  h1{
+    position: absolute;
+    top: -.2em;
+    text-align: center;
+    width: 100%;
+  }
   nav{
-    position: fixed;
+    position: absolute;
     top: .5em;
     right: 1em;
     font-weight: 600;
-    a{
-      color: $link-color;
-      text-decoration: none;
-      margin-left: .6em;
-    }
-    a:hover{
-      color: $link-hover;
-    }
+
   }
   .logout{
     color: $red;

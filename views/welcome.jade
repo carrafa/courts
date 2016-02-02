@@ -5,17 +5,18 @@ block head
 
 block content
     
-  body(ng-controller="login")
-    h1 
-    
-    .signup LOG IN
-      form(ng-submit="logIn()")
-        input(type="text", ng-model="credentials.username", placeholder="username")
-        input(type="password", ng-model="credentials.password", placeholder="password")
-        button(type="submit") log in
-    
-    .signup SIGN UP
-    form(ng-submit="createUser()")
-      input(type="text", ng-model="newUser.username", placeholder="username")
-      input(type="password", ng-model="newUser.password", placeholder="password")
-      button(type="submit") sign up
+  body
+    .main-container(ng-controller="login")
+      h1 
+      
+      .signup LOG IN
+        form(ng-submit="logIn()")
+          input(type="text", ng-model="credentials.username", placeholder="username")
+          input(type="password", ng-model="credentials.password", placeholder="password")
+          button(type="submit") log in
+      
+      .signup SIGN UP
+      form(ng-submit="createUser()")
+        input(type="text", ng-model="newUser.username", placeholder="username")
+        input(type="password", ng-model="newUser.password", placeholder="password")
+        button(type="submit") sign up

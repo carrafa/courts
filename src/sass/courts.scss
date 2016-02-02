@@ -19,6 +19,14 @@ li{
   @include omega();
 }
 
+.map-list-nav{
+  position: relative;
+  margin-top: 3em;
+  a{
+    
+  }
+}
+
 body{
   @include media($mobile){
   li{
@@ -29,7 +37,4 @@ body{
       @include span-columns(8);
     }
   }
-}
-
-.ng-map-info-window{
 }
