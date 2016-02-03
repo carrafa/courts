@@ -13,6 +13,16 @@ router.get('/', function(req, res) {
   });
 });
 
+//get one
+router.get('/:id', function(req, res, next) {
+  Court.findById(req.params.id, function(err, dbCourt) {
+    if (err) {
+      return next(err);
+    }
+    res.json(dbCourt);
+  });
+});
+
 // post
 router.post('/', function(req, res, next) {
   if (!req.body.court) {

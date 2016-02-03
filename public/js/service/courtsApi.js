@@ -10,6 +10,10 @@ api.factory('courtsApi', ['$http', function($http) {
     return $http.get(baseUrl);
   }
 
+  courtsInterface.getCourt = function(id) {
+    return $http.get(baseUrl + "/" + id);
+  }
+
   courtsInterface.createCourt = function(newUser) {
     var payload = {
       user: newUser

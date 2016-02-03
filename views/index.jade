@@ -31,7 +31,7 @@ block content
       .fav-courts(ng-hide="list")
         h4 here are your favorite courts
         ul
-          li(ng-repeat="court in currentUser.fav_courts track by $index")
+          li(ng-repeat="court in fav_courts track by $index")
             div {{court.name | lowercase}}
             div {{court.location | lowercase}}
             div {{court.phone}}
