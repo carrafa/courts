@@ -7,6 +7,8 @@ $mobile: new-breakpoint(max-width 650px 8);
 
 $header-height: 2.5em;
 $header-height-mobile: 2.2em;
+$header-color: limegreen;
+$header-shadow: black;
 
 $main-font: 'Quicksand', sans-serif;
 
@@ -14,18 +16,17 @@ $font-color: lawngreen;
 $font-color-dark: gold;
 $font-color-light: linen;
 
-$link-color: lime;
+$link-color: forestgreen;
 $link-hover: chartreuse;
 
-$bg-dark: darkgreen;
-$bg-light: lemonchiffon;
+$bg: mintcream;
+$bg-alt: forestgreen;
 
 $red: firebrick;
 $red-light: salmon;
 
-
 body {
-  background-color: $bg-dark;
+  background-color: $bg;
   font-family: $main-font;
   text-align: center;
 }
@@ -67,8 +68,9 @@ header{
   width: 100%;
   height: $header-height;
   top: 0;
-  background-color: forestgreen;
+  background-color: $header-color;
   z-index: 1000;
+  // box-shadow: 0px 1px 1px $header-shadow;
   h1{
     position: absolute;
     top: -.2em;
@@ -86,6 +88,12 @@ header{
     color: $red;
   }
 
+}
+
+.selected{
+  font-weight: 700;
+  font-size: 1.2em;
+  color: $link-hover;
 }
 
 body{

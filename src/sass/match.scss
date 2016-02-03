@@ -4,7 +4,7 @@ li{
   @include span-columns(3);
   @include omega(4n);
   margin-bottom: 1em;
-  background-color: $bg-light;
+  background-color: $bg-alt;
   border-radius: 2em;
   display: inline-block;
   overflow: scroll;

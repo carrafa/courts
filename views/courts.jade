@@ -12,7 +12,7 @@ block content
           a(href="#", ng-click="list = false", ng-class="{selected: !list}") map view
           
         
-        .map-container(ng-show="list")
+        .map-container(ng-hide="list")
           ng-map(center="[40.7127, -74.0059]", zoom="11", styles="{{styles}}", class="ng-map")
             div(ng-repeat="court in vm.courts track by $index")
               marker(id="marker{{court._id}}", position="[{{court.lat}}, {{court.lon}}]", title="{{court.name}}", data="{{court}}", on-click="map.showInfoWindow(court._id)")
@@ -24,7 +24,7 @@ block content
                   div courts: {{court.courts | lowercase}} {{court.tennis_type | lowercase}}, {{court.indoor_outdoor | lowercase}}
                   div {{court.info | lowercase}}
 
-        .list-container(ng-hide="list")
+        .list-container(ng-show="list")
           h5 click on a court to save to it to your favorites
           input(type="text", ng-model="q", placeholder="search", class="court-search")
           ul
