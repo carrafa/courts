@@ -1,7 +1,17 @@
 var ctrl = angular.module('courtsController', []);
 
-ctrl.controller('courts', ['$scope', 'courtsApi', 'NgMap', '$rootScope',
-  function($scope, courtsApi, NgMap, $rootScope) {
+ctrl.controller('courts', ['$scope', 'courtsApi', 'usersApi', 'NgMap',
+  '$rootScope',
+  function($scope, courtsApi, usersApi, NgMap, $rootScope) {
+
+    $scope.currentUser = {};
+
+    $scope.loadUser = function() {
+      usersApi.loadUser($scope.cookie).then(function(response) {
+        $scope.currentUser = response.data.user[0]
+        console.log('$scope.currentUser', $scope.currentUser)
+      });
+    };
 
     $scope.allCourts = {};
 
@@ -10,7 +20,6 @@ ctrl.controller('courts', ['$scope', 'courtsApi', 'NgMap', '$rootScope',
         $scope.allCourts = response.data.courts
       });
     };
-
 
     var vm = this;
 
@@ -23,7 +32,20 @@ ctrl.controller('courts', ['$scope', 'courtsApi', 'NgMap', '$rootScope',
       vm.courts = response.data.courts
     })
 
+    $scope.updateFavCourts = function(id) {
+      var fav_courts = $scope.currentUser.fav_courts
+      if (fav_courts.indexOf(id) > -1) {
+        console.log('already saved!');
+        return;
+      } else {
+        fav_courts.push(id)
+        $scope.currentUser.fav_courts = fav_courts;
+        usersApi.updateUser($scope.currentUser);
+      }
+    }
 
+
+    $scope.loadUser();
     $scope.getCourts();
 
     $scope.styles = [{

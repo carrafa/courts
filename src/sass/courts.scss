@@ -1,9 +1,9 @@
 @import 'base';
 
 li{
-  @include span-columns(6);
-  @include omega(2n);
-  height: 50vh;
+  @include span-columns(3);
+  @include omega(4n);
+  height: 20vh;
   margin-bottom: 1em;
   background-color: $bg-light;
   border-radius: 2em;
@@ -23,7 +23,7 @@ li{
   position: relative;
   margin-top: 3em;
   a{
-    
+
   }
 }
 

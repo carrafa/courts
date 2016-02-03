@@ -25,6 +25,7 @@ api.factory('usersApi', ['$http', function($http) {
     var payload = {
       user: user
     };
+    console.log('user.fav_courts array: ', user.fav_courts);
     return $http.put(baseUrl + "/" + user._id, payload);
   }
 

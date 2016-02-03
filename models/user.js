@@ -24,6 +24,9 @@ var UserSchema = mongoose.Schema({
   zipcode: {
     type: String
   },
+  fav_courts: {
+    type: Array
+  },
   token: {
     type: String
   }

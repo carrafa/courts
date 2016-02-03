@@ -61,8 +61,8 @@ li {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 48.82117%;
-  height: 50vh;
+  width: 23.23176%;
+  height: 20vh;
   margin-bottom: 1em;
   background-color: lemonchiffon;
   border-radius: 2em;
@@ -70,9 +70,9 @@ li {
   overflow: scroll; }
   li:last-child {
     margin-right: 0; }
-  li:nth-child(2n) {
+  li:nth-child(4n) {
     margin-right: 0; }
-  li:nth-child(2n+1) {
+  li:nth-child(4n+1) {
     clear: left; }
 
 .ng-map {

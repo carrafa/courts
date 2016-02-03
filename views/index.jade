@@ -27,3 +27,13 @@ block content
         div(ng-click="edit.zipcode = true", ng-hide="edit.zipcode") zipcode: {{currentUser.zipcode}}
         form(ng-submit="updateUser()")
           input(ng-show="edit.zipcode", type='text', ng-model='currentUser.zipcode', placeholder="{{currentUser.zipcode}}")
+
+      .fav-courts(ng-hide="list")
+        h4 here are your favorite courts
+        ul
+          li(ng-repeat="court in currentUser.fav_courts track by $index")
+            div {{court.name | lowercase}}
+            div {{court.location | lowercase}}
+            div {{court.phone}}
+            div courts: {{court.courts | lowercase}} {{court.tennis_type | lowercase}}, {{court.indoor_outdoor | lowercase}}
+            div {{court.info | lowercase}}
