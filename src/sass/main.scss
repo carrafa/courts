@@ -16,11 +16,30 @@ input{
   height: 20%;
 }
 
+.fav-courts{
+  li{
+    @include span-columns(3);
+    @include omega(4n);
+    height: 20vh;
+    margin-bottom: 1em;
+    background-color: $bg-light;
+    border-radius: 2em;
+    display: inline-block;
+    overflow: scroll;
+  };
+}
+
 body{
   @include media($mobile){
     .avatar{
       width: 80%;
       height: 80%;
+    }
+    .fav-courts{
+      li{
+          @include span-columns(8);
+          @include omega();
+      }
     }
   }
 }

@@ -8,8 +8,8 @@ block content
     .main-container(ng-controller="main")
       .court-container(ng-controller="courts as vm")
         .map-list-nav
-          a(href="#", ng-click="list = !list", ng-show="list") list view
-          a(href="#", ng-click="list = !list", ng-hide="list") map view
+          a(href="#", ng-click="list = true", ng-class="{selected: list}") list view
+          a(href="#", ng-click="list = false", ng-class="{selected: !list}") map view
         
         .map-container(ng-hide="list")
           ng-map(center="[40.7127, -74.0059]", zoom="11", styles="{{styles}}", class="ng-map")

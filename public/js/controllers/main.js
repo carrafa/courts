@@ -42,17 +42,17 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', '$cookies',
       var courts = $scope.currentUser.fav_courts
       courtsApi.getAll().then(
         function(response) {
-          var courtsArray = response.data.courts
-          new_courts = {}
-          angular.forEach(courtsArray, function(value, key) {
+          var all_courts = response.data.courts
+          fav_courts_in_db = {}
+          angular.forEach(all_courts, function(value, key) {
             if ($scope.currentUser.fav_courts.indexOf(value._id) >
               -1) {
               this[value._id] = value;
             }
-          }, new_courts);
-          $scope.fav_courts = new_courts;
+          }, fav_courts_in_db);
+          $scope.fav_courts = fav_courts_in_db;
         });
-    }
+    };
 
 
     $scope.logout = function() {

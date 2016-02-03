@@ -5,7 +5,8 @@
 $tablet: new-breakpoint(max-width 1065px 8);
 $mobile: new-breakpoint(max-width 650px 8);
 
-$header-height: 4em;
+$header-height: 4.5em;
+$header-height-mobile: 2.2em;
 
 $main-font: 'Quicksand', sans-serif;
 
@@ -31,7 +32,7 @@ body {
 
 .main-container{
   @include outer-container();
-  margin-top: $header-height;
+  margin-top: $header-height + 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -66,6 +67,7 @@ header{
   width: 100%;
   height: $header-height;
   top: 0;
+  background-color: forestgreen;
   h1{
     position: absolute;
     top: -.2em;
@@ -81,5 +83,20 @@ header{
   }
   .logout{
     color: $red;
+  }
+
+}
+
+body{
+  @include media($mobile){
+    header{
+      height: $header-height-mobile;
+      h1{
+        text-align: left;
+        top: 0;
+        left: .2em;
+        font-size: 2em;
+      }
+    }
   }
 }
