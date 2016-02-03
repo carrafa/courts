@@ -5,7 +5,7 @@
 $tablet: new-breakpoint(max-width 1065px 8);
 $mobile: new-breakpoint(max-width 650px 8);
 
-$header-height: 4.5em;
+$header-height: 2.5em;
 $header-height-mobile: 2.2em;
 
 $main-font: 'Quicksand', sans-serif;
@@ -41,7 +41,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 h1{
-  font-size: 5em;
+  font-size: 3em;
 }
 
 ul{
@@ -68,6 +68,7 @@ header{
   height: $header-height;
   top: 0;
   background-color: forestgreen;
+  z-index: 1000;
   h1{
     position: absolute;
     top: -.2em;

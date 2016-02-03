@@ -9,7 +9,6 @@ ctrl.controller('courts', ['$scope', 'courtsApi', 'usersApi', 'NgMap',
     $scope.loadUser = function() {
       usersApi.loadUser($scope.cookie).then(function(response) {
         $scope.currentUser = response.data.user[0]
-        console.log('$scope.currentUser', $scope.currentUser)
       });
     };
 
@@ -24,7 +23,6 @@ ctrl.controller('courts', ['$scope', 'courtsApi', 'usersApi', 'NgMap',
     var vm = this;
 
     NgMap.getMap().then(function(map) {
-      console.log('map', map)
       vm.map = map;
     });
 
