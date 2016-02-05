@@ -10,14 +10,21 @@ api.factory('messagesApi', ['$http', function($http) {
     return $http.get(baseUrl);
   }
 
-  messagesInterface.newMessage = function(message) {
+  messagesInterface.newConversation = function(message) {
     var conversation_id = [message.from, message.to].sort().join("");
     message.conversation_id = conversation_id;
     var payload = {
       message: message
     };
     return $http.post(baseUrl, payload);
-  }
+  };
+
+  messagesInterface.newMessage = function(message) {
+    var payload = {
+      message: message
+    };
+    return $http.post(baseUrl, payload);
+  };
 
   return messagesInterface
 

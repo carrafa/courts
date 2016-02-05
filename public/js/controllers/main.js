@@ -21,6 +21,8 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
 
     $scope.messages = {};
 
+    $scope.newMessage = {};
+
     $scope.edit = {
       name: false,
       avatar: false,
@@ -46,6 +48,7 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
         $scope.currentUser = response.data.user[0]
         $scope.getFavCourts();
         $scope.loadMessages($scope.currentUser._id);
+        $scope.newMessage.fromUsername = $scope.currentUser.username;
       });
     };
 
@@ -68,6 +71,7 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
     $scope.loadMessages = function() {
       messagesApi.getMessages().then(function(response) {
         $scope.messages = response.data.messages;
+        console.log('$scope.messages ', $scope.messages);
         angular.forEach($scope.messages, function(message,
           key) {
           $scope.conversations[message.conversation_id] =
@@ -80,11 +84,15 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
             conversation_id: message.conversation_id
           };
           $scope.conversationUsers.push(newConversation);
-          console.log($scope.conversationUsers);
-
         });
-        console.log('conversationUsers: ', $scope.conversationUsers);
       });
+    };
+
+    $scope.sendMessage = function(newMessage) {
+      console.log('newMmmmmessage::  ', newMessage);
+      $scope.newMessage.conversation_id = newMessage.conversation_id;
+      console.log('$scope.newMmmmmessage::  ', $scope.newMessage);
+      messagesApi.newMessage($scope.newMessage);
     };
 
     $scope.loadConversation = function(conversation_id) {
@@ -94,8 +102,8 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
         if (message.conversation_id === conversation_id) {
           $scope.conversation.push(message);
         }
-      })
-    }
+      });
+    };
 
     $scope.removeFromFavs = function(id) {
       delete $scope.fav_courts[id];

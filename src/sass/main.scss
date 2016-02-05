@@ -7,13 +7,15 @@
 }
 
 .messages{
-  .from-username{
-    color: crimson;
-    font-weight: bold;
-    font-size: 1.2em;
+  @include span-columns(6);
+  @include omega(2n);
+  .message-list{
+    @include span-columns(8);
   }
-  .to-username{
-    color: navy;
+  .conversation-list{
+    @include span-columns(4);
+  }
+  .username{
     font-weight: bold;
     font-size: 1.2em;
   }

@@ -85,15 +85,34 @@ header {
   .left-panel:nth-child(2n+1) {
     clear: left; }
 
-.messages .from-username {
-  color: crimson;
-  font-weight: bold;
-  font-size: 1.2em; }
-
-.messages .to-username {
-  color: navy;
-  font-weight: bold;
-  font-size: 1.2em; }
+.messages {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .messages:last-child {
+    margin-right: 0; }
+  .messages:nth-child(2n) {
+    margin-right: 0; }
+  .messages:nth-child(2n+1) {
+    clear: left; }
+  .messages .message-list {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%; }
+    .messages .message-list:last-child {
+      margin-right: 0; }
+  .messages .conversation-list {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .messages .conversation-list:last-child {
+      margin-right: 0; }
+  .messages .username {
+    font-weight: bold;
+    font-size: 1.2em; }
 
 input {
   border: none;
