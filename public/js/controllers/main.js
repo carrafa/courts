@@ -34,7 +34,6 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
     $scope.editOff = function() {
       angular.forEach($scope.edit,
         function(value, key) {
-          console.log(this);
           if (this[key] === true) {
             this[key] = false;
           }
@@ -71,7 +70,6 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
     $scope.loadMessages = function() {
       messagesApi.getMessages().then(function(response) {
         $scope.messages = response.data.messages;
-        console.log('$scope.messages ', $scope.messages);
         angular.forEach($scope.messages, function(message,
           key) {
           $scope.conversations[message.conversation_id] =
@@ -84,14 +82,25 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
             conversation_id: message.conversation_id
           };
           $scope.conversationUsers.push(newConversation);
+          filterConversationUsers();
         });
       });
     };
 
+    function filterConversationUsers() {
+      angular.forEach($scope.conversationUsers, function(conversation, key) {
+        $scope.conversationUsers = $scope.conversationUsers.filter(
+          function(conversation) {
+            return conversation.name !== $scope.currentUser.name;
+          });
+        console.log("INDEX OF???", $scope.conversationUsers.indexOf(
+          conversation));
+      });
+      console.log($scope.conversationUsers);
+    };
+
     $scope.sendMessage = function(newMessage) {
-      console.log('newMmmmmessage::  ', newMessage);
       $scope.newMessage.conversation_id = newMessage.conversation_id;
-      console.log('$scope.newMmmmmessage::  ', $scope.newMessage);
       messagesApi.newMessage($scope.newMessage);
     };
 

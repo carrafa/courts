@@ -47,5 +47,5 @@ block content
               form(ng-submit="sendMessage(message)")
                 input(type="text", ng-model="newMessage.message", placeholder="...")
         ul.conversation-list
-          li(ng-repeat="conversation in conversationUsers")
+          li(ng-repeat="conversation in conversationUsers | unique:'name'")
             a(href="#", ng-click="loadConversation(conversation.conversation_id)") {{conversation.name}}
