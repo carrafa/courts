@@ -7,6 +7,8 @@ ctrl.controller('match', ['$scope', 'usersApi', 'messagesApi', function($scope,
 
   $scope.allUsers = {};
 
+  $scope.messageInput = false;
+
   $scope.loadUser = function() {
     usersApi.loadUser($scope.cookie).then(function(response) {
       $scope.currentUser = response.data.user[0]
@@ -25,7 +27,6 @@ ctrl.controller('match', ['$scope', 'usersApi', 'messagesApi', function($scope,
       to: to,
       message: message
     }
-    console.log("HERE'S THE MESSAGE: ", message)
     messagesApi.newMessage(message).then(function(response) {
       console.log("hi, i'm done");
     });

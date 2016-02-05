@@ -14,7 +14,6 @@ block content
           div {{user.bio}}
           div skill: {{user.skill}}
           div {{user.zipcode}}
-          a(href="#", ng-click="message = true")
-          form(ng-submit="newMessage(currentUser._id, user._id, $scope.allUsers[user._id].newMessage)")
+          a(href="#", ng-click="messageInput = true", ng-hide="messageInput") send a message to {{user.name}}
+          form(ng-show="messageInput", ng-submit="newMessage(currentUser._id, user._id, $scope.allUsers[user._id].newMessage); messageInput = false")
             input(type="text", ng-model="$scope.allUsers[user._id].newMessage")
-            div {{$scope.allUsers[user._id].newMessage}}
