@@ -1,15 +1,19 @@
 var ctrl = angular.module('mainController', []);
 
-ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', '$cookies',
+ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
+  '$cookies',
   function(
     $scope,
     usersApi,
     courtsApi,
+    messagesApi,
     $cookies) {
 
-    $scope.currentUser = {}
+    $scope.currentUser = {};
 
-    $scope.fav_courts = {}
+    $scope.fav_courts = {};
+
+    $scope.messages = {};
 
     $scope.edit = {
       name: false,
@@ -35,6 +39,7 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', '$cookies',
       usersApi.loadUser($scope.cookie).then(function(response) {
         $scope.currentUser = response.data.user[0]
         $scope.getFavCourts();
+        $scope.loadMessages($scope.currentUser._id);
       });
     };
 
@@ -53,6 +58,12 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', '$cookies',
           $scope.fav_courts = fav_courts_in_db;
         });
     };
+
+    $scope.loadMessages = function() {
+      messagesApi.getMessages().then(function(response) {
+        $scope.messages = response.data.messages
+      })
+    }
 
     $scope.removeFromFavs = function(id) {
       delete $scope.fav_courts[id];

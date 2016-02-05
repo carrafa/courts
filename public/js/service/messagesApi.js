@@ -6,12 +6,8 @@ api.factory('messagesApi', ['$http', function($http) {
 
   var messagesInterface = {};
 
-  messagesInterface.getAll = function() {
+  messagesInterface.getMessages = function() {
     return $http.get(baseUrl);
-  }
-
-  messagesInterface.getMessages = function(user) {
-    return $http.get(baseUrl + "/" + id);
   }
 
   messagesInterface.newMessage = function(message) {
