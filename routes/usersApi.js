@@ -50,8 +50,8 @@ router.delete('/', function(req, res) {
 });
 
 // update
-router.put('/:id', function(req, res) {
-  User.findByIdAndUpdate(req.params.id, req.body.user, function(err, user) {
+router.put('/:_id', function(req, res) {
+  User.findByIdAndUpdate(req.params._id, req.body.user, function(err, user) {
     if (err) {
       return next(err);
     }

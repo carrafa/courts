@@ -32,12 +32,12 @@ ul {
   padding: 0; }
 
 a {
-  color: forestgreen;
+  color: palegreen;
   text-decoration: none;
   margin-left: .6em; }
 
 a:hover {
-  color: chartreuse; }
+  color: lime; }
 
 header {
   position: fixed;
@@ -62,7 +62,7 @@ header {
 .selected {
   font-weight: 700;
   font-size: 1.2em;
-  color: chartreuse; }
+  color: lime; }
 
 @media screen and (max-width: 650px) {
   body header {

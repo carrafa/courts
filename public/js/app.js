@@ -5,6 +5,7 @@ var app = angular.module('courtsClient', [
   'matchController',
   'courtsController',
   'courtsApiFactory',
+  'messagesApiFactory',
   'loginController',
   'usersApiFactory'
 ]);

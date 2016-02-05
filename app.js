@@ -48,6 +48,9 @@ app.use('/api/users', usersApi);
 var courtsApi = require('./routes/courtsApi');
 app.use('/api/courts', courtsApi);
 
+var messagesApi = require('./routes/messagesApi');
+app.use('/api/messages', messagesApi);
+
 var courts = require('./routes/courts');
 app.use('/courts', courts);
 
