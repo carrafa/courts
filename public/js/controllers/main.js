@@ -13,6 +13,12 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
 
     $scope.fav_courts = {};
 
+    $scope.conversation = [];
+
+    $scope.conversations = {};
+
+    $scope.conversationUsers = [];
+
     $scope.messages = {};
 
     $scope.edit = {
@@ -62,7 +68,33 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
     $scope.loadMessages = function() {
       messagesApi.getMessages().then(function(response) {
         $scope.messages = response.data.messages;
+        angular.forEach($scope.messages, function(message,
+          key) {
+          $scope.conversations[message.conversation_id] =
+            $scope.conversations[
+              message.conversation_id] || [];
+          $scope.conversations[message.conversation_id].push(
+            message);
+          newConversation = {
+            name: message.fromUsername,
+            conversation_id: message.conversation_id
+          };
+          $scope.conversationUsers.push(newConversation);
+          console.log($scope.conversationUsers);
+
+        });
+        console.log('conversationUsers: ', $scope.conversationUsers);
       });
+    };
+
+    $scope.loadConversation = function(conversation_id) {
+      $scope.conversation = [];
+      angular.forEach($scope.messages, function(message, key) {
+        $scope.conversation = $scope.conversation || [];
+        if (message.conversation_id === conversation_id) {
+          $scope.conversation.push(message);
+        }
+      })
     }
 
     $scope.removeFromFavs = function(id) {

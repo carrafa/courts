@@ -41,5 +41,8 @@ block content
       .messages
         h4 messages
         ul.message-list
-          li(ng-repeat="message in messages")
+          li(ng-repeat="message in conversation track by $index")
             div <span class="from-username"> {{message.fromUsername}}</span> {{message.message}}
+        ul.conversation-list
+          li(ng-repeat="conversation in conversationUsers")
+            a(href="#", ng-click="loadConversation(conversation.conversation_id)") {{conversation.name}}
