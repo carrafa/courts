@@ -23,8 +23,10 @@ ctrl.controller('match', ['$scope', 'usersApi', 'messagesApi', function($scope,
 
   $scope.newMessage = function(from, to, message) {
     var message = {
-      from: from,
-      to: to,
+      from: from._id,
+      fromUsername: from.username,
+      to: to._id,
+      toUsername: to.username,
       message: message
     }
     messagesApi.newMessage(message).then(function(response) {

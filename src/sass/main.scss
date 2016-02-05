@@ -1,8 +1,21 @@
 @import 'base';
 
 
-.profile{
-  .update{
+.left-panel{
+  @include span-columns(6);
+  @include omega(2n);
+}
+
+.messages{
+  .from-username{
+    color: crimson;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .to-username{
+    color: navy;
+    font-weight: bold;
+    font-size: 1.2em;
   }
 }
 
@@ -18,8 +31,8 @@ input{
 
 .fav-courts{
   li{
-    @include span-columns(3);
-    @include omega(4n);
+    @include span-columns(6);
+    @include omega(2n);
     position: relative;
     height: 20vh;
     margin-bottom: 1em;

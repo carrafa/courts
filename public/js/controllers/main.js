@@ -61,8 +61,8 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
 
     $scope.loadMessages = function() {
       messagesApi.getMessages().then(function(response) {
-        $scope.messages = response.data.messages
-      })
+        $scope.messages = response.data.messages;
+      });
     }
 
     $scope.removeFromFavs = function(id) {

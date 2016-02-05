@@ -73,6 +73,28 @@ header {
       left: .2em;
       font-size: 2em; } }
 
+.left-panel {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  .left-panel:last-child {
+    margin-right: 0; }
+  .left-panel:nth-child(2n) {
+    margin-right: 0; }
+  .left-panel:nth-child(2n+1) {
+    clear: left; }
+
+.messages .from-username {
+  color: crimson;
+  font-weight: bold;
+  font-size: 1.2em; }
+
+.messages .to-username {
+  color: navy;
+  font-weight: bold;
+  font-size: 1.2em; }
+
 input {
   border: none;
   border-radius: .2em; }
@@ -85,7 +107,7 @@ input {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 23.23176%;
+  width: 48.82117%;
   position: relative;
   height: 20vh;
   margin-bottom: 1em;
@@ -95,9 +117,9 @@ input {
   overflow: scroll; }
   .fav-courts li:last-child {
     margin-right: 0; }
-  .fav-courts li:nth-child(4n) {
+  .fav-courts li:nth-child(2n) {
     margin-right: 0; }
-  .fav-courts li:nth-child(4n+1) {
+  .fav-courts li:nth-child(2n+1) {
     clear: left; }
   .fav-courts li a {
     position: absolute;

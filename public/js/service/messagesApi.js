@@ -11,6 +11,8 @@ api.factory('messagesApi', ['$http', function($http) {
   }
 
   messagesInterface.newMessage = function(message) {
+    var conversation_id = [message.from, message.to].sort().join("");
+    message.conversation_id = conversation_id;
     var payload = {
       message: message
     };

@@ -6,19 +6,13 @@ var Message = require('../models/message');
 
 // get
 router.get('/', function(req, res) {
-  console.log('GET API/MESSAGES : req.user._id', req.user._id)
-  var query = Message.find({});
-  query.or([{
-    'from': req.user._id
-  }, {
-    'to': req.user._id
-  }]);
-  query.exec(
+  Message.find({
+      conversation_id: new RegExp(req.user._id)
+    },
     function(err, dbMessages) {
       res.json({
         messages: dbMessages
       });
-      console.log("dbMessages", dbMessages);
     });
 });
 

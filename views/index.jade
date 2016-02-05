@@ -4,44 +4,42 @@ block content
   body
     include ./includes/header
     .main-container(ng-controller="main")
-      
-      ul.profile
-        
-        img(ng-click="edit.avatar = !edit.avatar", src="{{currentUser.avatar}}", class="avatar")
-        form(ng-submit="updateUser()")
-          input(ng-show="edit.avatar", type='text', ng-model='currentUser.avatar', placeholder="{{currentUser.avatar}}") 
+      .left-panel
+        ul.profile
           
-        div(ng-click="edit.name = true", ng-hide="edit.name") name: {{currentUser.name}}
-        form(ng-submit="updateUser()")
-          input(ng-show="edit.name", type='text', ng-model='currentUser.name', placeholder="{{currentUser.name}}")
-        
-        div(ng-click="edit.bio = true", ng-hide="edit.bio") bio: {{currentUser.bio}}
-        form(ng-submit="updateUser()")
-          input(ng-show="edit.bio", type='text', ng-model='currentUser.bio', placeholder="{{currentUser.bio}}")
-        
-        div(ng-click="edit.skill = true", ng-hide="edit.skill") skill: {{currentUser.skill}}
-        form(ng-submit="updateUser()")
-          input(ng-show="edit.skill", type='number', ng-model='currentUser.skill', placeholder="{{currentUser.skill}}")
-        
-        div(ng-click="edit.zipcode = true", ng-hide="edit.zipcode") zipcode: {{currentUser.zipcode}}
-        form(ng-submit="updateUser()")
-          input(ng-show="edit.zipcode", type='text', ng-model='currentUser.zipcode', placeholder="{{currentUser.zipcode}}")
+          img(ng-click="edit.avatar = !edit.avatar", src="{{currentUser.avatar}}", class="avatar")
+          form(ng-submit="updateUser()")
+            input(ng-show="edit.avatar", type='text', ng-model='currentUser.avatar', placeholder="{{currentUser.avatar}}") 
+            
+          div(ng-click="edit.name = true", ng-hide="edit.name") name: {{currentUser.name}}
+          form(ng-submit="updateUser()")
+            input(ng-show="edit.name", type='text', ng-model='currentUser.name', placeholder="{{currentUser.name}}")
+          
+          div(ng-click="edit.bio = true", ng-hide="edit.bio") bio: {{currentUser.bio}}
+          form(ng-submit="updateUser()")
+            input(ng-show="edit.bio", type='text', ng-model='currentUser.bio', placeholder="{{currentUser.bio}}")
+          
+          div(ng-click="edit.skill = true", ng-hide="edit.skill") skill: {{currentUser.skill}}
+          form(ng-submit="updateUser()")
+            input(ng-show="edit.skill", type='number', ng-model='currentUser.skill', placeholder="{{currentUser.skill}}")
+          
+          div(ng-click="edit.zipcode = true", ng-hide="edit.zipcode") zipcode: {{currentUser.zipcode}}
+          form(ng-submit="updateUser()")
+            input(ng-show="edit.zipcode", type='text', ng-model='currentUser.zipcode', placeholder="{{currentUser.zipcode}}")
 
-      .fav-courts(ng-hide="list")
-        h4 here are your favorite courts
-        ul.fav-courts
-          li(ng-repeat="court in fav_courts track by $index")
-            a(href="#", ng-click="removeFromFavs(court._id)") x
-            div {{court.name | lowercase}}
-            div {{court.location | lowercase}}
-            div {{court.phone}}
-            div courts: {{court.courts | lowercase}} {{court.tennis_type | lowercase}}, {{court.indoor_outdoor | lowercase}}
-            div {{court.info | lowercase}}
+        .fav-courts(ng-hide="list")
+          h4 here are your favorite courts
+          ul.fav-courts
+            li(ng-repeat="court in fav_courts track by $index")
+              a(href="#", ng-click="removeFromFavs(court._id)") x
+              div {{court.name | lowercase}}
+              div {{court.location | lowercase}}
+              div {{court.phone}}
+              div courts: {{court.courts | lowercase}} {{court.tennis_type | lowercase}}, {{court.indoor_outdoor | lowercase}}
+              div {{court.info | lowercase}}
             
       .messages
         h4 messages
         ul.message-list
           li(ng-repeat="message in messages")
-            div {{message.from}}
-            div {{message.to}}
-            div {{message.message}}
+            div <span class="from-username"> {{message.fromUsername}}</span> {{message.message}}
