@@ -15,7 +15,6 @@ block content
         form(ng-submit="updateUser()")
           input(ng-show="edit.name", type='text', ng-model='currentUser.name', placeholder="{{currentUser.name}}")
         
-        
         div(ng-click="edit.bio = true", ng-hide="edit.bio") bio: {{currentUser.bio}}
         form(ng-submit="updateUser()")
           input(ng-show="edit.bio", type='text', ng-model='currentUser.bio', placeholder="{{currentUser.bio}}")
@@ -30,8 +29,9 @@ block content
 
       .fav-courts(ng-hide="list")
         h4 here are your favorite courts
-        ul
+        ul.fav-courts
           li(ng-repeat="court in fav_courts track by $index")
+            a(href="#", ng-click="removeFromFavs(court._id)") x
             div {{court.name | lowercase}}
             div {{court.location | lowercase}}
             div {{court.phone}}

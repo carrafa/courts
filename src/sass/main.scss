@@ -20,13 +20,20 @@ input{
   li{
     @include span-columns(3);
     @include omega(4n);
+    position: relative;
     height: 20vh;
     margin-bottom: 1em;
     background-color: $bg-alt;
-    border-radius: 2em;
+    border-radius: .5em;
     display: inline-block;
     overflow: scroll;
+    a{
+      position: absolute;
+      top: 0;
+      right: .2em;
+    }
   };
+
 }
 
 body{

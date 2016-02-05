@@ -32,12 +32,12 @@ ul {
   padding: 0; }
 
 a {
-  color: forestgreen;
+  color: palegreen;
   text-decoration: none;
   margin-left: .6em; }
 
 a:hover {
-  color: chartreuse; }
+  color: lime; }
 
 header {
   position: fixed;
@@ -62,7 +62,7 @@ header {
 .selected {
   font-weight: 700;
   font-size: 1.2em;
-  color: chartreuse; }
+  color: lime; }
 
 @media screen and (max-width: 650px) {
   body header {
@@ -86,10 +86,11 @@ input {
   display: block;
   margin-right: 2.35765%;
   width: 23.23176%;
+  position: relative;
   height: 20vh;
   margin-bottom: 1em;
   background-color: forestgreen;
-  border-radius: 2em;
+  border-radius: .5em;
   display: inline-block;
   overflow: scroll; }
   .fav-courts li:last-child {
@@ -98,6 +99,10 @@ input {
     margin-right: 0; }
   .fav-courts li:nth-child(4n+1) {
     clear: left; }
+  .fav-courts li a {
+    position: absolute;
+    top: 0;
+    right: .2em; }
 
 @media screen and (max-width: 650px) {
   body .avatar {

@@ -54,6 +54,15 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', '$cookies',
         });
     };
 
+    $scope.removeFromFavs = function(id) {
+      delete $scope.fav_courts[id];
+      index = $scope.currentUser.fav_courts.indexOf(id);
+      if (index >= 0) {
+        $scope.currentUser.fav_courts.splice(index, 1);
+      }
+      usersApi.updateUser($scope.currentUser);
+    };
+
 
     $scope.logout = function() {
       $cookies.remove('token');
