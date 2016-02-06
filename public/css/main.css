@@ -86,6 +86,7 @@ header {
     clear: left; }
 
 .messages {
+  text-align: left;
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -96,20 +97,23 @@ header {
     margin-right: 0; }
   .messages:nth-child(2n+1) {
     clear: left; }
+  .messages input {
+    width: 100%; }
   .messages .message-list {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 65.88078%; }
+    width: 82.94039%; }
     .messages .message-list:last-child {
       margin-right: 0; }
   .messages .conversation-list {
+    text-align: right;
     font-weight: bold;
     font-size: 1.2em;
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%; }
+    width: 14.70196%; }
     .messages .conversation-list:last-child {
       margin-right: 0; }
   .messages .username {
@@ -148,6 +152,15 @@ input {
     right: .2em; }
 
 @media screen and (max-width: 650px) {
+  body .left-panel {
+    margin-top: 30vh;
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 100%;
+    margin-right: 0; }
+    body .left-panel:last-child {
+      margin-right: 0; }
   body .avatar {
     width: 80%;
     height: 80%; }
@@ -158,4 +171,16 @@ input {
     width: 100%;
     margin-right: 0; }
     body .fav-courts li:last-child {
+      margin-right: 0; }
+  body .messages {
+    position: absolute;
+    top: 0;
+    height: 30vh;
+    overflow: scroll;
+    float: left;
+    display: block;
+    margin-right: 3.57866%;
+    width: 100%;
+    margin-right: 0; }
+    body .messages:last-child {
       margin-right: 0; } }

@@ -42,7 +42,7 @@ block content
         h4 messages
         ul.message-list
           li(ng-repeat="message in conversation track by $index")
-            div <span class="username"> {{message.fromUsername}}</span> {{message.message}}
+            div <span class="username"> {{message.fromUsername}}: </span> {{message.message}}
             div(ng-if="$last")
               form(ng-submit="sendMessage(message)")
                 input(type="text", ng-model="newMessage.message", placeholder="...")

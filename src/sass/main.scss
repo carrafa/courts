@@ -7,15 +7,20 @@
 }
 
 .messages{
+  text-align: left;
   @include span-columns(6);
   @include omega(2n);
+  input{
+    width: 100%;
+  }
   .message-list{
-    @include span-columns(8);
+    @include span-columns(10);
   }
   .conversation-list{
+    text-align: right;
     font-weight: bold;
     font-size: 1.2em;
-    @include span-columns(4);
+    @include span-columns(2);
   }
   .username{
     font-weight: bold;
@@ -55,6 +60,11 @@ input{
 
 body{
   @include media($mobile){
+    .left-panel{
+      margin-top: 30vh;
+      @include span-columns(8);
+      @include omega();
+    }
     .avatar{
       width: 80%;
       height: 80%;
@@ -64,6 +74,14 @@ body{
           @include span-columns(8);
           @include omega();
       }
+    }
+    .messages{
+      position: absolute;
+      top: 0;
+      height: 30vh;
+      overflow: scroll;
+      @include span-columns(8);
+      @include omega();
     }
   }
 }
