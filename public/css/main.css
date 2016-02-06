@@ -104,6 +104,8 @@ header {
     .messages .message-list:last-child {
       margin-right: 0; }
   .messages .conversation-list {
+    font-weight: bold;
+    font-size: 1.2em;
     float: left;
     display: block;
     margin-right: 2.35765%;

@@ -32,6 +32,7 @@ router.post('/', function(req, res, next) {
       });
     } else {
       res.json(dbMessage);
+      console.log("dbMessage: ", dbMessage);
     }
   });
 });

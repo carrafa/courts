@@ -93,10 +93,7 @@ ctrl.controller('main', ['$scope', 'usersApi', 'courtsApi', 'messagesApi',
           function(conversation) {
             return conversation.name !== $scope.currentUser.name;
           });
-        console.log("INDEX OF???", $scope.conversationUsers.indexOf(
-          conversation));
       });
-      console.log($scope.conversationUsers);
     };
 
     $scope.sendMessage = function(newMessage) {
