@@ -2,7 +2,8 @@ var api = angular.module('courtsApiFactory', []);
 
 api.factory('courtsApi', ['$http', function($http) {
 
-  var baseUrl = 'http://localhost:8080/api/courts';
+  var baseUrl = 'http://tenniscourts.herokuapp.com/api/courts' ||
+    'http://localhost:8080/api/courts';
 
   var courtsInterface = {};
 
