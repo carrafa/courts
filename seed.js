@@ -1,5 +1,4 @@
 var User = require('./models/user');
-var faker = require('faker');
 
 var mongoPath = process.env.MONGOLAB_URI || 'mongodb://localhost/courts'
 var mongoose = require('mongoose');
@@ -24,25 +23,81 @@ var nyc_zipcodes = [10453, 10457, 10460, 10458, 10467, 10468, 10451, 10452,
   10309, 10312, 10301, 10304, 10305, 10314
 ];
 
+var songs = [{
+  username: "bjorn",
+  name: "bjorn",
+  bio: "just a swede whackin a tennis ball.",
+  avatar: "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/80649/0793202001420044020_filepicker.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}, {
+  username: "john",
+  name: "john",
+  bio: "an angry tennis man",
+  avatar: "http://www.tennisconsult.com/wp-content/uploads/2012/12/John-McEnroe.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}, {
+  username: "rod",
+  name: "rod",
+  bio: "tennis!",
+  avatar: "https://upload.wikimedia.org/wikipedia/commons/f/f1/Rod_Laver_1964.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}, {
+  username: "venus",
+  name: "venus",
+  bio: "tennis tennis tennis",
+  avatar: "http://miamitennisnews.com/wp-content/uploads/2009/09/img_1710-200x300.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}, {
+  username: "serena",
+  name: "serena",
+  bio: "woootennisssss",
+  avatar: "http://pbs.twimg.com/media/CYlHx1yVAAABWUa.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}, {
+  username: "dorothy",
+  name: "dorothy",
+  bio: "tennis is a thing.",
+  avatar: "https://ak-hdl.buzzfed.com/static/enhanced/webdr06/2013/7/8/10/enhanced-buzz-19738-1373295093-27.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}, {
+  username: "virginia",
+  name: "virginia",
+  bio: "tennis????",
+  avatar: "https://ak-hdl.buzzfed.com/static/enhanced/webdr03/2013/7/8/10/enhanced-buzz-10490-1373295077-24.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}, {
+  username: "bunny",
+  name: "bunny",
+  bio: "hop hop tennis",
+  avatar: "http://i.dailymail.co.uk/i/pix/2009/07/03/article-0-059362F7000005DC-986_233x542.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}, {
+  username: "fred",
+  name: "fred",
+  bio: "tennis and stuff",
+  avatar: "http://www.puckedinthehead.com/wp-content/images/Fred-Perry3.jpg",
+  skill: Math.floor(Math.random() * 10),
+  zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
+}];
+
 function seedDb() {
-  for (i = 0; i < 10; i++) {
-    newUser = {};
-    newUser.username = faker.internet.userName();
-    newUser.name = faker.name.findName();
-    newUser.bio = faker.hacker.phrase();
-    newUser.skill = Math.floor(Math.random() * 10)
-    newUser.avatar = faker.image.avatar();
-    newUser.zipcode = nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)];
-    dbUser = new User(newUser);
-    dbUser.save(function(err, dbUser) {
-      console.log("saved?");
-      if (err) {
-        console.log("no: ", err);
-      };
-      console.log("yes: ", dbUser);
-    });
+  for (i = 0; i < songs.length; i++) {
+    var newUser = new User(songs[i]);
+    newUser.save();
   }
-  mongoose.disconnect();
 };
 
+
 seedDb();
+
+
+
+mongoose.disconnect();
