@@ -1,4 +1,3 @@
-var courts = require('./nyc_tennis_data.json');
 var User = require('./models/user');
 var Court = require('./models/court');
 
@@ -26,6 +25,7 @@ var nyc_zipcodes = [10453, 10457, 10460, 10458, 10467, 10468, 10451, 10452,
 ];
 
 
+var courts = require('./nyc_tennis_data.json');
 var users = [{
   username: "bjorn",
   name: "bjorn",
@@ -91,7 +91,13 @@ var users = [{
   zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
 }];
 
-function seedDb() {
+
+function clearDb() {
+  User.remove({}, function() {});
+  Court.remove({}, function() {});
+}
+
+function seedDb(users, courts) {
   for (i = 0; i < users.length; i++) {
     var newUser = new User(users[i]);
     newUser.save();
@@ -102,12 +108,8 @@ function seedDb() {
   }
 };
 
-function clearDb() {
-  User.remove({}, function() {});
-  Court.remove({}, function() {});
-}
 
 clearDb();
-seedDb();
+seedDb(users, courts);
 
 mongoose.disconnect();
