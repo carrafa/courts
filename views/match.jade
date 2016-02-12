@@ -8,9 +8,10 @@ block content
     include ./includes/header
     .main-container(ng-controller="match")
       ul
-        li(ng-repeat="user in allUsers")
+        li.user(ng-repeat="user in allUsers")
           div {{user.name}}
-          img(src="{{user.avatar}}")
+          .avatar
+            img(src="{{user.avatar}}")
           div {{user.bio}}
           div skill: {{user.skill}}
           div {{user.zipcode}}

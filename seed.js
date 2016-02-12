@@ -1,4 +1,6 @@
+var courts = require('./nyc_tennis_data.json');
 var User = require('./models/user');
+var Court = require('./models/court');
 
 var mongoPath = process.env.MONGOLAB_URI || 'mongodb://localhost/courts'
 var mongoose = require('mongoose');
@@ -23,17 +25,18 @@ var nyc_zipcodes = [10453, 10457, 10460, 10458, 10467, 10468, 10451, 10452,
   10309, 10312, 10301, 10304, 10305, 10314
 ];
 
-var songs = [{
+
+var users = [{
   username: "bjorn",
   name: "bjorn",
-  bio: "just a swede whackin a tennis ball.",
+  bio: "i am a tennis playing swede.",
   avatar: "https://blog-blogmediainc.netdna-ssl.com/upload/SportsBlogcom/80649/0793202001420044020_filepicker.jpg",
   skill: Math.floor(Math.random() * 10),
   zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
 }, {
   username: "john",
   name: "john",
-  bio: "an angry tennis man",
+  bio: "i am an angry tennis man",
   avatar: "http://www.tennisconsult.com/wp-content/uploads/2012/12/John-McEnroe.jpg",
   skill: Math.floor(Math.random() * 10),
   zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
@@ -54,7 +57,7 @@ var songs = [{
 }, {
   username: "serena",
   name: "serena",
-  bio: "woootennisssss",
+  bio: "wooo i love tennisssss",
   avatar: "http://pbs.twimg.com/media/CYlHx1yVAAABWUa.jpg",
   skill: Math.floor(Math.random() * 10),
   zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
@@ -82,22 +85,29 @@ var songs = [{
 }, {
   username: "fred",
   name: "fred",
-  bio: "tennis and stuff",
+  bio: "tennis and shirts and stuff",
   avatar: "http://www.puckedinthehead.com/wp-content/images/Fred-Perry3.jpg",
   skill: Math.floor(Math.random() * 10),
   zipcode: nyc_zipcodes[Math.floor(Math.random() * nyc_zipcodes.length)]
 }];
 
 function seedDb() {
-  for (i = 0; i < songs.length; i++) {
-    var newUser = new User(songs[i]);
+  for (i = 0; i < users.length; i++) {
+    var newUser = new User(users[i]);
     newUser.save();
+  }
+  for (i = 0; i < courts.length; i++) {
+    var newCourt = new Court(courts[i]);
+    newCourt.save();
   }
 };
 
+function clearDb() {
+  User.remove({}, function() {});
+  Court.remove({}, function() {});
+}
 
+clearDb();
 seedDb();
-
-
 
 mongoose.disconnect();

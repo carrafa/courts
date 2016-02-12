@@ -8,10 +8,14 @@ li{
   border-radius: 2em;
   display: inline-block;
   overflow: scroll;
-
-  img{
-    width: 80%;
-    height: 80%;
+  .avatar{
+    margin-left: 2.5%;
+    width: 95%;
+    height: 15em;
+    overflow: hidden;
+    img{
+      width: 100%;
+    }
   }
 };
 

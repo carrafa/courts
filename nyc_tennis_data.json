@@ -361,7 +361,9 @@
   "indoor_outdoor": "Outdoor",
   "tennis_type": "Hard",
   "accessible": "N",
-  "info": "Lessons Offered"
+  "info": "Lessons Offered",
+  "lat": "40.790298",
+  "lon": "-73.962642"
 }, {
   "prop_id": "M010",
   "name": "Central Park",
@@ -371,7 +373,9 @@
   "indoor_outdoor": "Outdoor",
   "tennis_type": "Fast Dry",
   "accessible": "N",
-  "info": "Lessons Offered"
+  "info": "Lessons Offered",
+  "lat": "40.789768",
+  "lon": "-73.962028"
 }, {
   "prop_id": "M144",
   "name": "Brian Watkins Tennis Center",

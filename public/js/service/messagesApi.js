@@ -2,8 +2,9 @@ var api = angular.module('messagesApiFactory', []);
 
 api.factory('messagesApi', ['$http', function($http) {
 
-  var baseUrl = 'http://tenniscourts.herokuapp.com/api/messages' ||
-    'http://localhost:8080/api/messages';
+
+
+  var baseUrl = window.location.origin + '/api/messages';
 
   var messagesInterface = {};
 

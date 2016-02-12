@@ -89,9 +89,13 @@ li {
     margin-right: 0; }
   li:nth-child(4n+1) {
     clear: left; }
-  li img {
-    width: 80%;
-    height: 80%; }
+  li .avatar {
+    margin-left: 2.5%;
+    width: 95%;
+    height: 15em;
+    overflow: hidden; }
+    li .avatar img {
+      width: 100%; }
 
 @media screen and (max-width: 650px) {
   body li {
