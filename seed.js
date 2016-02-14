@@ -104,7 +104,11 @@ function seedDb(users, courts) {
   }
   for (i = 0; i < courts.length; i++) {
     var newCourt = new Court(courts[i]);
-    newCourt.save();
+    newCourt.save(function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });
   }
 };
 
