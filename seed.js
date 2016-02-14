@@ -115,5 +115,6 @@ function seedDb(users, courts) {
 
 clearDb();
 seedDb(users, courts);
-
-mongoose.disconnect();
+setTimeout(function() {
+  mongoose.disconnect();
+}, 10000)
