@@ -15,7 +15,7 @@ block content
         .map-container(ng-hide="list")
           ng-map(center="[40.7127, -74.0059]", zoom="11", styles="{{styles}}", class="ng-map")
             div(ng-repeat="court in vm.courts track by $index")
-              marker(id="{{court._id}}", position="[{{court.lat}}, {{court.lon}}]", title="{{court.name}}", data="{{court}}", on-click="vm.showCourtInfo(court)")
+              marker(id="{{court._id}}", position="[{{court.lat}}, {{court.lon}}]", title="{{court.name}}", data="{{court}}", icon="{url:'images/racket.svg'}", on-click="vm.showCourtInfo(court)")
             info-window(id="info-window")
               .body-content(ng-non-bindable="") 
                 h3 {{vm.court.name | lowercase}} 
