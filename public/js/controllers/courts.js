@@ -1,8 +1,9 @@
 var ctrl = angular.module('courtsController', []);
 
-ctrl.controller('courts', ['$scope', 'courtsApi', 'usersApi', 'NgMap',
+ctrl.controller('courts', ['$scope', '$timeout', 'courtsApi', 'usersApi',
+  'NgMap',
   '$rootScope',
-  function($scope, courtsApi, usersApi, NgMap, $rootScope) {
+  function($scope, $timeout, courtsApi, usersApi, NgMap, $rootScope) {
 
     $scope.currentUser = {};
 
@@ -28,9 +29,16 @@ ctrl.controller('courts', ['$scope', 'courtsApi', 'usersApi', 'NgMap',
 
     courtsApi.getAll().then(function(response) {
       vm.courts = response.data.courts
-    })
+    });
 
     $scope.updateFavCourts = function(id) {
+      var court = document.getElementById('list-' + id)
+      var rackets = angular.element('<div>').addClass('crossed-rackets');
+      rackets.text('saved!');
+      angular.element(court).append(rackets);
+      $timeout(function() {
+        rackets.remove();
+      }, 1000);
       var fav_courts = $scope.currentUser.fav_courts
       if (fav_courts.indexOf(id) > -1) {
         console.log('already saved!');
@@ -40,12 +48,12 @@ ctrl.controller('courts', ['$scope', 'courtsApi', 'usersApi', 'NgMap',
         $scope.currentUser.fav_courts = fav_courts;
         usersApi.updateUser($scope.currentUser);
       }
-    }
+    };
 
     vm.showCourtInfo = function(e, court) {
       vm.court = court;
       vm.map.showInfoWindow('info-window', court._id);
-    }
+    };
 
 
     $scope.loadUser();

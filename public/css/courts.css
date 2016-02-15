@@ -81,12 +81,14 @@ li {
   display: block;
   margin-right: 2.35765%;
   width: 23.23176%;
+  position: relative;
   height: 20vh;
   margin-bottom: 1em;
   background-color: forestgreen;
   border-radius: 2em;
   display: inline-block;
-  overflow: scroll; }
+  overflow: scroll;
+  cursor: pointer; }
   li:last-child {
     margin-right: 0; }
   li:nth-child(4n) {
@@ -112,6 +114,7 @@ li {
 
 @media screen and (max-width: 650px) {
   body li {
+    height: 100vw;
     float: left;
     display: block;
     margin-right: 3.57866%;
@@ -126,3 +129,36 @@ li {
     width: 100%; }
     body .ng-map:last-child {
       margin-right: 0; } }
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.crossed-rackets {
+  position: absolute;
+  text-align: center;
+  color: linen;
+  font-size: 3em;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("/images/crossed_rackets.svg");
+  background-size: cover;
+  -webkit-animation: fadeOut 1s, ease;
+  -moz-animation: fadeOut 1s, ease;
+  animation: fadeOut 1s, ease; }

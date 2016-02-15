@@ -7,12 +7,14 @@
 li{
   @include span-columns(3);
   @include omega(4n);
+  position: relative;
   height: 20vh;
   margin-bottom: 1em;
   background-color: $bg-alt;
   border-radius: 2em;
   display: inline-block;
   overflow: scroll;
+  cursor: pointer;
 };
 
 .ng-map{
@@ -34,6 +36,7 @@ li{
 body{
   @include media($mobile){
   li{
+    height: 100vw;
       @include span-columns(8);
       @include omega();
     }
@@ -41,4 +44,26 @@ body{
       @include span-columns(8);
     }
   }
+}
+@include keyframes(fadeOut){
+  0%{
+    opacity: 1;
+  };
+  100%{
+    opacity: 0;
+  }
+}
+
+.crossed-rackets{
+  position: absolute;
+  text-align: center;
+  color: $font-color-light;
+  font-size: 3em;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('/images/crossed_rackets.svg');
+  background-size: cover;
+  @include animation(fadeOut 1.0s, ease)
 }
