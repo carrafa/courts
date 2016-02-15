@@ -42,13 +42,9 @@ ctrl.controller('courts', ['$scope', 'courtsApi', 'usersApi', 'NgMap',
       }
     }
 
-    $scope.showCourtInfo = function(e, court) {
-      // $scope.currentCourt = court
-      console.log(this);
-      google.maps.InfoWindow({
-          title: 'banana'
-        })
-        // vm.map.showInfoWindow(court._id)
+    vm.showCourtInfo = function(e, court) {
+      vm.court = court;
+      vm.map.showInfoWindow('info-window', court._id);
     }
 
 
