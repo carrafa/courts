@@ -7,16 +7,20 @@ block content
     
   body
     .main-container(ng-controller="login")
-      h1
+      .welcome-container 
+        p welcome to courts. an application to help you find tennis partners and tennis courts in new york city.
+        p sign up and log in below.
       
-      .signup LOG IN
+      .welcome-container 
+        h4 LOG IN
         form(ng-submit="logIn()")
           input(type="text", ng-model="credentials.username", placeholder="username")
           input(type="password", ng-model="credentials.password", placeholder="password")
           button(type="submit") log in
       
-      .signup SIGN UP
-      form(ng-submit="createUser()")
-        input(type="text", ng-model="newUser.username", placeholder="username")
-        input(type="password", ng-model="newUser.password", placeholder="password")
-        button(type="submit") sign up
+      .welcome-container 
+        h4 SIGN UP
+        form(ng-submit="createUser()")
+          input(type="text", ng-model="newUser.username", placeholder="username")
+          input(type="password", ng-model="newUser.password", placeholder="password")
+          button(type="submit") sign up

@@ -73,11 +73,19 @@ header {
       left: .2em;
       font-size: 2em; } }
 
+.welcome-container {
+  margin: 2em auto;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%; }
+  .welcome-container:last-child {
+    margin-right: 0; }
+
 form {
   position: relative;
-  width: 20%;
-  margin: 0 auto;
-  margin-bottom: 2em; }
+  width: 100%; }
 
 input {
   width: 100%;
